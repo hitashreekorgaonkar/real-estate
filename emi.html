@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik:500" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>SHREE | Shree Real Estate Developer - Mumbai</title>
+</head>
+
+<body>
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color:#253746;">
+        <a class="navbar-brand " href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-md-column small" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link li" href="news.html">News & Media</a>
+                <a class="nav-link li" href="careers.html">Careers</a>
+                <a class="nav-link li" href="contact.html">Contact Us</a>
+            </div>
+            <div class="navbar-nav ml-auto pt-1">
+                <a class="nav-link li" href="index.html">HOME <span class="sr-only">(current)</span></a>
+                <a class="nav-link li" href="about.html">About Us</a>
+                <a class="nav-link li activeNav" href="emi.html">EMI CALCULATOR</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mx-auto w-75">
+        <div class="p-3 mt-4 text-center">
+            <h3 class="orange">Home Loan EMI Calculator</h3>
+            <p> Calculate your Home Loan EMI & Total Interest Due</p>
+        </div>
+
+        <div class="container border">
+            <div class="bg-white">
+                <div class="row ">
+                    <div class="col-sm-12 col-lg-7 bg-white">
+
+                        <p><span class="badge badge-primary p-2 mt-3">Loan Amount</span></p>
+                        <div class="input-group mb-3 w-50">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rs.</span>
+                            </div>
+                            <input type="text" class="form-control" id="home_price" aria-label="Amount (to the nearest rupee)">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <p><span class="badge badge-primary p-2">Rate of Interest<span class="badge badge-light ml-2"><output name="sliderInput1" id="sliderVal1">8</output>%</span></span></p>
+                        <div class="">
+                            <span class="min">0.1</span>
+                            <input type="range" name="sliderInput1" id="interest" class="custom-range w-50" min="0.1" max="15" step="0.1" value="8" oninput="sliderVal1.value = interest.value">
+                            <span class="max">15</span>
+                        </div>
+
+
+                        <hr class="my-4">
+
+                        <p><span class="badge badge-primary p-2">Loan Tenure<span class="badge badge-light ml-2"><output name="sliderInput2" id="sliderVal2">5</output> Years</span></span></p>
+                        <div class="">
+                            <span class="min">1</span>
+                            <input type="range" name="sliderInput2" id="emi_month" class="custom-range w-50" min="1" max="30" value="5" oninput="sliderVal2.value = emi_month.value">
+                            <span class="max">30</span>
+                        </div>
+
+
+                        <hr class="my-4">
+
+                        <input class="btn btn-danger float-left mb-3" onclick="EmiCalculator();" type="submit" value="CALCULATE"> <br>
+
+                    </div>
+
+                    <div class="col-sm-12 col-lg-5 ml-auto uig text-center">
+
+                        <div class="p-2 mb-2 bg-white text-dark border-top">
+                            <h4 style="color:#2572b1">EMI RESULT</h4>
+                        </div>
+
+                        <h5 class="text-white my-3">Equated Monthly Instalment</h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rs.</span>
+                            </div>
+                            <input type="text" class="form-control" id="emi" readonly="true" aria-label="Amount (to the nearest rupee)">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h5 class="text-white my-3">Interest Amount</h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rs.</span>
+                            </div>
+                            <input type="text" class="form-control" id="interestamt" readonly="true" aria-label="Amount (to the nearest rupee)">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h5 class="text-white my-3">Total Amount Payable</h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rs.</span>
+                            </div>
+                            <input type="text" class="form-control" id="totalamtpay" readonly="true" aria-label="Amount (to the nearest rupee)">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-3 bg-secondary text-white mt-5">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 pl-5"> <h6 class=""> © 2021 Lorem, Ipsum.</h6></div>
+            <div class="col-md-6 col-sm-12 px-5">
+                <a href="" class="text-light pr-4 small"
+                    target="_self">Lorem, ipsum.</a>
+                <a href="" class="text-light pr-4 small"
+                    target="_self">Lorem, ipsum.</a>
+                <a href="" class="text-light pr-4 small"
+                    target="_self">Lorem, ipsum.</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function EmiCalculator() {
+            var principle = $('#home_price').val();
+            var interestrate = $('#interest').val() / 1200;
+            var noofyears = $('#emi_month').val() * 12;
+
+            emi = principle * interestrate / (1 - (Math.pow(1 / (1 + interestrate), noofyears)));
+            $('#emi').val(emi.toFixed(0));
+
+            interestamt = (emi * noofyears) - principle;
+            $("#interestamt").val(interestamt.toFixed(0));  //unary operator
+
+            totalamtpay = (emi * noofyears);
+            $("#totalamtpay").val(totalamtpay.toFixed(0));
+        }
+    </script>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
